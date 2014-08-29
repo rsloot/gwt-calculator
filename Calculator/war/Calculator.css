@@ -1,0 +1,40 @@
+/** Add css rules here for your application. */
+
+/** set width of equals button */
+.gwt-Button-equals {
+	width: 160px;
+}
+/** set width of all buttons except equals and zero */
+.gwt-Button-one {
+	width: 40px;
+}
+/** set width of zero button */
+.gwt-Button-zero {
+	width: 80px;
+}
+/** add style to clear button */
+.gwt-Button-clear {
+	color: dodgerblue;
+}
+/** link style */
+#link {
+	width: 103px;
+}
+#ryanLinkedin {
+	text-decoration: underline;
+	color: green;
+}
+#ryanLinkedin:visited {
+	color: green;
+}
+#ryanLinkedin:hover {
+	color: black;
+	text-decoration: none;
+}
+#ryanLinkedin:active {
+	color: green;
+}
+#calculator {
+	width: 190px;
+	border-style: solid; 
+}
