@@ -13,6 +13,8 @@ import com.google.gwt.user.client.Window;
  * 
  */
 public class CalculateExp extends Calculator {
+	private final String MATH_SYMBOLS = "+-/*";
+
 	/**
 	 * blank constructor
 	 */
@@ -58,8 +60,7 @@ public class CalculateExp extends Calculator {
 		// store expressions as floats and calculate the expression
 		double firstEx = Double.parseDouble(firstExp);
 		double secondEx = Double.parseDouble(secondExp);
-		if (firstExp.equals("600613"))
-		{
+		if (firstExp.equals("600613")) {
 			goToGoogle();
 			return "Google...";
 		}
@@ -91,16 +92,32 @@ public class CalculateExp extends Calculator {
 	private void goToGoogle() {
 		// Auto-generated method stub
 		Window.open("http://www.google.com", "_blank", "");
-//		try
-//		{
-//			URL google = new URL("http://www.google.com");
-//			URLConnection urlConn = google.openConnection();
-//			urlConn.connect();
-//		}
-//		catch (IOException e)
-//		{
-//			e.printStackTrace();
-//		}
+		// try
+		// {
+		// URL google = new URL("http://www.google.com");
+		// URLConnection urlConn = google.openConnection();
+		// urlConn.connect();
+		// }
+		// catch (IOException e)
+		// {
+		// e.printStackTrace();
+		// }
+	}
+
+	public boolean isValidExpression(String text) {
+		String s = text + "";
+		boolean first = false;
+		for (int i = 0; i < s.length(); i++) {
+			if (MATH_SYMBOLS.contains(s.charAt(i) + "") && !first) {
+				s.replace(s.charAt(i), ' ');
+				first = true;
+				continue;
+			}
+			if (MATH_SYMBOLS.contains(s.charAt(i) + "") && first) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**

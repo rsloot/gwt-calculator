@@ -157,9 +157,10 @@ public class Calculator implements EntryPoint {
 						updateText();
 					} else
 						setExpressions();
-						setNumberText(calcExp.calculate(firstEx, secondEx, modifier));
-						calculated = true;
-						updateText();
+					setNumberText(calcExp
+							.calculate(firstEx, secondEx, modifier));
+					calculated = true;
+					updateText();
 				}
 			}
 		});
@@ -190,6 +191,7 @@ public class Calculator implements EntryPoint {
 		setNumberText("");
 		decimal.setEnabled(true);
 		enableMathButtons();
+		calculated = true;
 		updateText();
 	}
 
@@ -232,19 +234,20 @@ public class Calculator implements EntryPoint {
 		// disable function buttons if one was already pressed
 		if (b.getText().equals("+") || b.getText().equals("-")
 				|| b.getText().equals("/") || b.getText().equals("*")) {
-//			modifier = b.getText();// .substring(getNumberText().length() - 2,
-//									// getNumberText().length() - 1);
-//									// System.out.println(modifier);
-//			modFound = true;
+			// modifier = b.getText();// .substring(getNumberText().length() -
+			// 2,
+			// // getNumberText().length() - 1);
+			// // System.out.println(modifier);
+			// modFound = true;
 			decimal.setEnabled(true);
 			disableMathButtons();
 		}
-//		if (!modFound)
-//			firstEx += b.getText();
-//		else if (modFound && helpMe)
-//			secondEx += b.getText();
-//		else if (modFound)
-//			helpMe = true;
+		// if (!modFound)
+		// firstEx += b.getText();
+		// else if (modFound && helpMe)
+		// secondEx += b.getText();
+		// else if (modFound)
+		// helpMe = true;
 	}
 
 	/**
@@ -254,9 +257,10 @@ public class Calculator implements EntryPoint {
 	 */
 	protected void updateText() {
 		if (calculated) {
-//			if(getNumberText().equals("Google...") || getNumberText().substring(0, 2).equals("Se"))
-//				{clearText();}
-//			clearText();
+			// if(getNumberText().equals("Google...") ||
+			// getNumberText().substring(0, 2).equals("Se"))
+			// {clearText();}
+			// clearText();
 			enableMathButtons();
 			calculated = false;
 			firstEx = "";
@@ -288,33 +292,39 @@ public class Calculator implements EntryPoint {
 	}
 
 	public void setExpressions() {
-		updateText();
-		String textExpressions = getNumberText();
-		for (int i = 0; i < textExpressions.length(); i++) {
-			if (textExpressions.charAt(i) == '+'
-					|| textExpressions.charAt(i) == '-'
-					|| textExpressions.charAt(i) == '*'
-					|| textExpressions.charAt(i) == '/') {
-				modFound = true;
-				modifier = textExpressions.charAt(i) + "";
-			}
-			if (!modFound)
-				firstEx += textExpressions.charAt(i) + "";
-			else if (modFound && helpMe)
-				secondEx += textExpressions.charAt(i) + "";
-			else if (modFound)
-			{
-				helpMe = true;
+		CalculateExp calculateExp = new CalculateExp();
+		GoogleSearchOption gso = new GoogleSearchOption();
+		if (!calculateExp.isValidExpression(getNumberText())) {
+			gso.search(getNumberText());
+		} else {
+			updateText();
+			String textExpressions = getNumberText();
+			for (int i = 0; i < textExpressions.length(); i++) {
+				if (textExpressions.charAt(i) == '+'
+						|| textExpressions.charAt(i) == '-'
+						|| textExpressions.charAt(i) == '*'
+						|| textExpressions.charAt(i) == '/') {
+					modFound = true;
+					modifier = textExpressions.charAt(i) + "";
+				}
+				if (!modFound)
+					firstEx += textExpressions.charAt(i) + "";
+				else if (modFound && helpMe)
+					secondEx += textExpressions.charAt(i) + "";
+				else if (modFound) {
+					helpMe = true;
+				}
 			}
 		}
 	}
-	
+
 	public void disableMathButtons() {
 		plus.setEnabled(false);
 		minus.setEnabled(false);
 		divide.setEnabled(false);
 		multiply.setEnabled(false);
 	}
+
 	public void enableMathButtons() {
 		plus.setEnabled(true);
 		minus.setEnabled(true);
