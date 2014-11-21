@@ -16,6 +16,10 @@
 .gwt-Button-clear {
 	color: dodgerblue;
 }
+/** set width of textbox */
+.gwt-TextBox-numberText {
+	width: 160px;
+}
 /** link style */
 #link {
 	width: 103px;
@@ -35,6 +39,6 @@
 	color: green;
 }
 #calculator {
-	width: 190px;
+	width: 200px;
 	border-style: solid; 
 }

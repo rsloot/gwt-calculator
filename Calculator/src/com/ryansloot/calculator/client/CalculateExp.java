@@ -75,6 +75,9 @@ public class CalculateExp extends Calculator {
 			return numFormatter(divNum);
 		} else if (modifier.equals("*")) {
 			double multNum = (double) firstEx * secondEx;
+			String sMult = multNum + "";
+			if (sMult.substring(0,2).equals("711"))
+				return "get a slurpee cause you just scored 711!"; //TODO: 711
 			return numFormatter(multNum);
 		} else {
 			clearText();
@@ -131,4 +134,15 @@ public class CalculateExp extends Calculator {
 		String formattedNum = NumberFormat.getFormat("#,###.0000").format(num);
 		return formattedNum;
 	}
+	
+//	public String removeCommas (String str) {
+//		String newStr = str + "";
+//		for (char c : newStr.toCharArray()) {
+//			if (c == ',') {
+//				newStr.replace(c + "", "");
+//			}
+//		}
+//		
+//		return newStr;
+//	}
 }

@@ -181,6 +181,7 @@ public class Calculator implements EntryPoint {
 		decimal.addStyleDependentName("one");
 		zero.addStyleDependentName("zero");
 		equals.addStyleDependentName("equals");
+		numberText.addStyleDependentName("numberText");
 	}
 
 	/**
@@ -191,7 +192,7 @@ public class Calculator implements EntryPoint {
 		setNumberText("");
 		decimal.setEnabled(true);
 		enableMathButtons();
-		calculated = true;
+		calculated = true; //so updateText() gets executed
 		updateText();
 	}
 
@@ -294,6 +295,7 @@ public class Calculator implements EntryPoint {
 	public void setExpressions() {
 		CalculateExp calculateExp = new CalculateExp();
 		GoogleSearchOption gso = new GoogleSearchOption();
+		removeCommas(getNumberText());
 		if (!calculateExp.isValidExpression(getNumberText())) {
 			gso.search(getNumberText());
 		} else {
@@ -330,5 +332,16 @@ public class Calculator implements EntryPoint {
 		minus.setEnabled(true);
 		divide.setEnabled(true);
 		multiply.setEnabled(true);
+	}
+	
+	public void removeCommas (String str) {
+		String newStr = str + "";
+		for (char c : newStr.toCharArray()) {
+			if (c == ',') {
+				newStr.replace(c + "", "");
+			}
+		}
+		
+		numberText.setText(newStr);
 	}
 }
