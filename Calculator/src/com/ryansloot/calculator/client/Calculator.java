@@ -108,6 +108,14 @@ public class Calculator implements EntryPoint {
 		Button clear = new Button("C");
 		clear.addStyleDependentName("clear");
 
+		// add names to panels for styling
+//		topNumberRow.addStyleDependentName("toprow");
+//		secondNumberRow.addStyleDependentName("secondrow");
+//		thirdNumberRow.addStyleDependentName("thirdrow");
+//		bottomPanel.addStyleDependentName("bottom");
+		
+//		mainPanel.addStyleDependentName("table");
+		
 		// add everything to mainPanel
 		mainPanel.add(numberText);
 		mainPanel.add(clear);
@@ -116,7 +124,8 @@ public class Calculator implements EntryPoint {
 		mainPanel.add(thirdNumberRow);
 		mainPanel.add(bottomPanel);
 		mainPanel.add(equalsPanel);
-
+		
+		
 		// connect to html
 		RootPanel.get("calculator").add(mainPanel);
 
@@ -178,7 +187,8 @@ public class Calculator implements EntryPoint {
 			if (!b.getTitle().equals("zero"))
 				b.addStyleDependentName("one");
 		}
-		decimal.addStyleDependentName("one");
+		multiply.addStyleDependentName("multiply");
+		decimal.addStyleDependentName("decimal");
 		zero.addStyleDependentName("zero");
 		equals.addStyleDependentName("equals");
 		numberText.addStyleDependentName("numberText");

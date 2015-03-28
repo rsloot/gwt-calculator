@@ -1,24 +1,39 @@
 /** Add css rules here for your application. */
 
+
+#blog {
+	text-decoration: none;
+	color: #00008B;
+}
+#blog:hover {
+	color: #87CEFA;
+}
+.gwt-Button-decimal {
+	width: 100%;
+}
+.gwt-Button-multiply {
+	width: 100%;
+}
 /** set width of equals button */
 .gwt-Button-equals {
-	width: 160px;
+	width: 100%;
 }
 /** set width of all buttons except equals and zero */
 .gwt-Button-one {
-	width: 40px;
+	width: 100%;
 }
 /** set width of zero button */
 .gwt-Button-zero {
-	width: 80px;
+	width: 100%;
 }
 /** add style to clear button */
 .gwt-Button-clear {
-	color: dodgerblue;
+	color: #1E90FF;
+	width: 5%;
 }
 /** set width of textbox */
 .gwt-TextBox-numberText {
-	width: 160px;
+	width: 18%;
 }
 /** link style */
 #link {
@@ -39,6 +54,13 @@
 	color: green;
 }
 #calculator {
-	width: 200px;
-	border-style: solid; 
+	width: 100%;
+}
+
+table {
+	width: 20%;
+	padding: 0;
+}
+td {
+	width: 20%;
 }
